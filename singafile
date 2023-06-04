@@ -1,13 +1,136 @@
-This C++ program demonstrates the use of five classes to calculate and display the areas of different shapes: Circle, Rectangle, Square, and Triangle.
+#include <iostream>
+using namespace std;
 
-The program starts by defining a base class called Shape, which is an abstract class since it contains a pure virtual function displayArea(). This function is intended to be overridden by the derived classes.
+class Shape {
+public:
+    virtual void displayArea() = 0;
+};
 
-Next, four derived classes are implemented: Circle, Rectangle, Square, and Triangle. Each of these classes inherits from the Shape base class and overrides the displayArea() function with its own implementation to calculate and display the area of the specific shape.
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    void displayArea() {
+        double area = 3.14 * radius * radius;
+        cout << "Circle Area: " << area << endl;
+    }
+};
 
-In the main() function, objects of each class are created: a Circle object, a Rectangle object, a Square object, and a Triangle object. These objects are then stored in an array of Shape pointers called shapes.
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+    void displayArea() {
+        double area = length * width;
+        cout << "Rectangle Area: " << area << endl;
+    }
+};
 
-Using a loop, the displayArea() function is called for each shape in the shapes array. Since the displayArea() function is declared as a pure virtual function in the Shape base class, the appropriate overridden function in each derived class is called based on the actual object type. This is an example of polymorphism, where the same function call behaves differently depending on the object's type.
+class Square : public Shape {
+private:
+    double side;
+public:
+    Square(double s) : side(s) {}
+    void displayArea() {
+        double area = side * side;
+        cout << "Square Area: " << area << endl;
+    }
+};
 
-When executed, the program calculates and displays the areas of the circle, rectangle, square, and triangle, respectively, by invoking the appropriate displayArea() function for each shape. Finally, the program returns 0, indicating successful execution.
+class Triangle : public Shape {
+private:
+    double base;
+    double height;
+public:
+    Triangle(double b, double h) : base(b), height(h) {}
+    void displayArea() {
+        double area = 0.5 * base * height;
+        cout << "Triangle Area: " << area << endl;
+    }
+};
 
-Overall, this program showcases the concept of inheritance, polymorphism, and abstract classes in C++ by using five classes to calculate and display the areas of different shapes.
+int main() {
+    Circle circle(5.0);
+    Rectangle rectangle(4.0, 6.0);
+    Square square(7.0);
+    Triangle triangle(3.0, 8.0);
+
+    Shape* shapes[] = {&circle, &rectangle, &square, &triangle};
+
+    for (int i = 0; i < 4; i++) {
+        shapes[i]->displayArea();
+    }
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void displayArea() = 0;
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    void displayArea() {
+        double area = 3.14 * radius * radius;
+        cout << "Circle Area: " << area << endl;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+    void displayArea() {
+        double area = length * width;
+        cout << "Rectangle Area: " << area << endl;
+    }
+};
+
+class Square : public Shape {
+private:
+    double side;
+public:
+    Square(double s) : side(s) {}
+    void displayArea() {
+        double area = side * side;
+        cout << "Square Area: " << area << endl;
+    }
+};
+
+class Triangle : public Shape {
+private:
+    double base;
+    double height;
+public:
+    Triangle(double b, double h) : base(b), height(h) {}
+    void displayArea() {
+        double area = 0.5 * base * height;
+        cout << "Triangle Area: " << area << endl;
+    }
+};
+
+int main() {
+    Circle circle(5.0);
+    Rectangle rectangle(4.0, 6.0);
+    Square square(7.0);
+    Triangle triangle(3.0, 8.0);
+
+    Shape* shapes[] = {&circle, &rectangle, &square, &triangle};
+
+    for (int i = 0; i < 4; i++) {
+        shapes[i]->displayArea();
+    }
+
+    return 0;
+}
