@@ -1,0 +1,13 @@
+This C++ program demonstrates the use of five classes to calculate and display the areas of different shapes: Circle, Rectangle, Square, and Triangle.
+
+The program starts by defining a base class called Shape, which is an abstract class since it contains a pure virtual function displayArea(). This function is intended to be overridden by the derived classes.
+
+Next, four derived classes are implemented: Circle, Rectangle, Square, and Triangle. Each of these classes inherits from the Shape base class and overrides the displayArea() function with its own implementation to calculate and display the area of the specific shape.
+
+In the main() function, objects of each class are created: a Circle object, a Rectangle object, a Square object, and a Triangle object. These objects are then stored in an array of Shape pointers called shapes.
+
+Using a loop, the displayArea() function is called for each shape in the shapes array. Since the displayArea() function is declared as a pure virtual function in the Shape base class, the appropriate overridden function in each derived class is called based on the actual object type. This is an example of polymorphism, where the same function call behaves differently depending on the object's type.
+
+When executed, the program calculates and displays the areas of the circle, rectangle, square, and triangle, respectively, by invoking the appropriate displayArea() function for each shape. Finally, the program returns 0, indicating successful execution.
+
+Overall, this program showcases the concept of inheritance, polymorphism, and abstract classes in C++ by using five classes to calculate and display the areas of different shapes.
